@@ -203,6 +203,9 @@ section .container{position:relative;z-index:2;}
 .sec-head .label{font-family:var(--gh);font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;display:block;}
 .sec-head h2{font-family:var(--gh);font-size:clamp(32px,5vw,48px);font-weight:600;text-transform:uppercase;letter-spacing:.01em;line-height:1.08;margin-bottom:16px;}
 .sec-head p{color:var(--text-dim);font-size:18px;}
+/* Paragraphs over photo backdrops need more contrast than card text (user request) */
+.hero p.sub,.sec-head p,.step p{color:#D2CCBD;}
+[data-theme="light"] .hero p.sub,[data-theme="light"] .sec-head p,[data-theme="light"] .step p{color:#57534A;}
 .sec-head p em{color:var(--text);font-style:italic;}
 /* ═── cards ──────────────────────────────────────────────────── */
 .grid{display:grid;gap:18px;}
