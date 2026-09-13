@@ -1,6 +1,6 @@
 # 🧬 Fusion — Always the right model for the job
 
-> **[→ Visit the Fusion website](https://boredsexyjordan.github.io/fusion-marketplace/)** — live demo, install guides, and the full model.
+> **[→ Visit the Fusion website](https://fusion-router.pages.dev/)** — live demo, install guides, and the full model.
 
 Fusion is a **model-routing orchestration layer** that runs as a single plugin across **Hermes, Claude Code, Grok Build / Grok Bot, and Codex**. It turns one goal into a team of model-pinned subagents — a middle manager keeps the handoff lossless while every artifact is attested to what actually ran.
 
