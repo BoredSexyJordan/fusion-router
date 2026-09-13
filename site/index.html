@@ -61,6 +61,7 @@ body{
   font-family:var(--sans);background:var(--bg);color:var(--text);
   line-height:1.65;-webkit-font-smoothing:antialiased;
   transition:background .3s linear,color .3s linear;position:relative;
+  max-width:100%;overflow-x:hidden;
 }
 /* grain layer — UNDER everything, never over code */
 body::after{
@@ -116,12 +117,13 @@ nav{
   border-bottom:1px solid var(--border);
 }
 .hero-bg{
-  position:absolute;inset:0;z-index:0;opacity:.6;
+  position:absolute;inset:0;z-index:0;opacity:.85;
   background-image:url('assets/hero-trinity-dawn.jpg');background-size:cover;background-position:center;
-  filter:grayscale(.1) contrast(1.05);
+  filter:grayscale(.05) contrast(1.0) brightness(1.05);
 }
-.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,15,20,.55) 0%,var(--bg) 92%);}
-[data-theme="light"] .hero-bg::after{background:linear-gradient(180deg,rgba(242,237,224,.72) 0%,var(--bg) 95%);}
+.hero-bg::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(13,15,20,.86) 0%,rgba(13,15,20,.62) 34%,rgba(13,15,20,.30) 62%,rgba(13,15,20,.55) 100%);}
+[data-theme="light"] .hero-bg::after{background:linear-gradient(180deg,rgba(242,237,224,.80) 0%,rgba(242,237,224,.55) 34%,rgba(242,237,224,.25) 62%,rgba(242,237,224,.55) 100%);}
 .hero .container{position:relative;z-index:3;}
 /* DECLASSIFIED stamp — one, hero only */
 .stamp{
@@ -168,9 +170,10 @@ nav{
 section{padding:84px 0;position:relative;}
 .section-bg{
   position:absolute;inset:0;z-index:0;background-size:cover;background-position:center;
-  opacity:.32;filter:grayscale(.2);
+  opacity:.6;filter:grayscale(.1) brightness(1.02);
 }
-.section-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,var(--bg) 0%,transparent 30%,transparent 70%,var(--bg) 100%);}
+.section-bg::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,var(--bg) 0%,transparent 22%,transparent 78%,var(--bg) 100%);}
 [data-theme="light"] .section-bg::after{background:linear-gradient(180deg,var(--bg) 0%,transparent 25%,transparent 75%,var(--bg) 100%);}
 section .container{position:relative;z-index:2;}
 .docnum{
@@ -231,7 +234,7 @@ section .container{position:relative;z-index:2;}
 .ttable tr:last-child td{border-bottom:none;}
 /* ═── footer ─────────────────────────────────────────────────── */
 footer{border-top:1px solid var(--border);padding:56px 0;position:relative;overflow:hidden;}
-.footer-bg{position:absolute;inset:0;z-index:0;background-image:url('assets/convoy-dust-road.jpg');background-size:cover;background-position:center bottom;opacity:.28;filter:grayscale(.3);}
+.footer-bg{position:absolute;inset:0;z-index:0;background-image:url('assets/convoy-dust-road.jpg');background-size:cover;background-position:center bottom;opacity:.5;filter:grayscale(.15);}
 .footer-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,var(--bg) 0%,transparent 40%,transparent 70%,var(--bg) 100%);}
 .footer-inner{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;align-items:center;position:relative;z-index:2;}
 .footer-inner .note{color:var(--text-mute);font-family:var(--tw);font-size:13px;}
