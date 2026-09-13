@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "hooks": {
+    "postToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/hooks/fusion_contract_guard.py\"",
+        "timeout": 30,
+        "loop_limit": 5,
+        "failClosed": false
+      }
+    ]
+  }
+}

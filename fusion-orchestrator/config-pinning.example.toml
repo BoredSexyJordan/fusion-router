@@ -1,0 +1,16 @@
+# Model pinning for Fusion on Grok Build / Grok Bot
+# Merge into ~/.grok/config.toml (grok-build) — the desktop app shares this file.
+# Fusion iron invariant: roster-level pinning, no mid-run model switching.
+# Replace model IDs with the routes your subscription provides.
+
+[subagents.models]
+fusion-lead = "grok-4.5"          # T0: frontier planner (swap per packet judgment)
+fusion-mm = "grok-4.5"            # T1: MM (or a cheaper model — see model-index.json)
+fusion-worker = "grok-4.5"        # T2 default; per-spawn override wins
+fusion-auditor = "grok-4.5"       # second-pass auditor
+
+[subagents.toggle]
+fusion-lead = true
+fusion-mm = true
+fusion-worker = true
+fusion-auditor = true

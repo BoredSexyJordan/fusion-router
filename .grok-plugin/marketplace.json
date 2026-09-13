@@ -1,0 +1,21 @@
+{
+  "name": "boredsexy-hermes",
+  "description": "Fusion orchestration and Hermes-lane tooling — multi-model middle-manager orchestration with attested provenance.",
+  "owner": {
+    "name": "BoredSexyJordan",
+    "url": "https://github.com/BoredSexyJordan"
+  },
+  "plugins": [
+    {
+      "name": "fusion-orchestrator",
+      "source": { "type": "local", "path": "./fusion-orchestrator" },
+      "description": "Fusion v4 multi-model orchestration: middle-manager loop, model-pinned subagent teams, packet validation, prompt-audit hard gate, attested provenance. Same frozen run-state contract on Hermes, Claude Code, and Grok.",
+      "category": "development",
+      "version": "4.0.0",
+      "author": { "name": "BoredSexyJordan" },
+      "homepage": "https://github.com/BoredSexyJordan/fusion-marketplace",
+      "keywords": ["fusion", "orchestration", "multi-model", "middle-manager", "model-routing"],
+      "strict": true
+    }
+  ]
+}
