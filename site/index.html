@@ -241,7 +241,8 @@ footer { border-top: 1px solid var(--border); padding: 48px 0; }
     </div>
     <div class="code-host">
       <pre id="code-hermes" class="code-pane"># Hermes — fusion is a first-class plugin
-hermes plugin enable fusion
+hermes plugins install BoredSexyJordan/fusion-marketplace#hermes
+hermes plugins enable fusion
 hermes fusion plan "ship the feature"
 hermes fusion run fusion/packet.json</pre>
       <pre id="code-claude" class="code-pane" style="display:none"># Claude Code
@@ -307,7 +308,8 @@ codex fusion workflows add fusion-orchestrator
     <div class="grid grid-2" style="grid-template-columns:1fr 1fr">
       <div class="install-block">
         <h4>Hermes</h4>
-        <pre>hermes plugin install fusion
+        <pre>hermes plugins install BoredSexyJordan/fusion-marketplace#hermes
+hermes plugins enable fusion
 hermes fusion plan "your goal"
 hermes fusion run fusion/packet.json</pre>
         <div class="cap">Fusion is native to the Hermes lane it was born in.</div>

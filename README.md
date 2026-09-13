@@ -24,7 +24,7 @@ The middle-manager structure is deliberate: a genius planner with a dumb doer is
 
 | Harness | Command |
 |---|---|
-| **Hermes** | `hermes plugin enable fusion` → `hermes fusion run fusion/packet.json` |
+| **Hermes** | `hermes plugins install BoredSexyJordan/fusion-marketplace#hermes` → `hermes plugins enable fusion` → `hermes fusion run fusion/packet.json` |
 | **Claude Code** | `claude plugin marketplace add BoredSexyJordan/fusion-marketplace` → `claude plugin install fusion-orchestrator@boredsexy-hermes` → `/fusion-run` |
 | **Grok Build / Grok Bot** | `grok plugin marketplace add BoredSexyJordan/fusion-marketplace` → `grok plugin install fusion-orchestrator --trust` |
 | **Codex** | worker lane (see the site) |
@@ -33,6 +33,7 @@ The middle-manager structure is deliberate: a genius planner with a dumb doer is
 
 ```
 fusion-orchestrator/      the plugin (multi-skin: .claude-plugin, .grok-plugin, plugin.json)
+hermes/                   the Hermes plugin (install via ...#hermes subdir)
 site/                     the website (src: single index.html, dark + light)
 .claude-plugin/           Claude Code marketplace index
 .grok-plugin/             Grok marketplace index

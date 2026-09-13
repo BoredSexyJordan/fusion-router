@@ -1,0 +1,5 @@
+name: fusion
+version: "4.0.0"
+description: "Fusion v4 orchestration: middle-manager loop, subagent/bot team templates, model index, packet validation, and the weekly feedback scorer."
+author: Jordan/Hermes
+kind: general
