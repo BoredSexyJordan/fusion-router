@@ -1,0 +1,13 @@
+description = "Show status of Fusion runs: packets, dispatch receipts, attestation headers"
+prompt = """Show Fusion run status{{args}}.
+
+1. If an argument (a run directory) is given, read its harness.json, team.json, plan.json
+   and header.txt. Otherwise, look for Fusion run directories under ./fusion/ or ./runs/
+   (plan.json + harness.json present) and use the most recent.
+2. Print: the attested header line (from header.txt if present, else build it from
+   harness.json receipts via
+   python3 "$CODEX_PLUGIN_ROOT/skills/fusion-worker/scripts/build_fusion_header.py" <run-dir>),
+   then one line per dispatch: role -> actual_model@actual_provider [status] Ns.
+3. Flag any planned-but-not-ran member (in team.json roster but missing from harness.json
+   dispatches) as a PLANNED!=RAN defect.
+"""

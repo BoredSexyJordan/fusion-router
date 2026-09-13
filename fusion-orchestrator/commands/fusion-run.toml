@@ -1,0 +1,26 @@
+description = "Run a Fusion orchestration: plan a packet, dispatch model-pinned workers, collect attested artifacts"
+prompt = """Run a Fusion orchestration for: {{args}}
+
+You are the FUSION MIDDLE MANAGER. Follow the fusion-worker skill contract in reverse:
+
+1. PLAN (skip if the argument is a path to an existing packet JSON): decompose the goal into
+   a Fusion v4 packet - team roster (max 4 members, usually 3), each member with a pinned
+   model + provider + delegation kind (delegate_task | kanban_handoff | clean_session),
+   phases with inputs/deliverables/scope/verify. Validate the packet by running:
+   python3 "$CODEX_PLUGIN_ROOT/skills/fusion-worker/scripts/validate_fusion_packet.py" <packet.json>
+2. DISPATCH one phase per member. Each dispatch prompt MUST contain: the phase goal, the
+   packet inputs relevant to that member, deliverables, scope, verify. Never send phase
+   metadata alone. Never prescribe the solution - state the goal and constraints only.
+   Before dispatch, audit your own prompt: if it contains implementation steps, rewrite it
+   clean (hard gate). One rewrite, then escalate to the user if still prescribing.
+3. COLLECT: for each member, record actual model used, status, artifacts, seconds into
+   harness.json ({"dispatches": [...]}). planned != ran is a defect: attestation comes from
+   these receipts, never from the roster.
+4. ASSEMBLE: write out-<role>.md per worker, team.json (roster + audit counters), and the
+   provenance header via:
+   python3 "$CODEX_PLUGIN_ROOT/skills/fusion-worker/scripts/build_fusion_header.py" <run-dir>
+5. REPORT to the user: the header line, one line per dispatch (status + seconds), and any
+   blockers escalated (decisions escalate to the user; struggles do not).
+
+Frozen run-state contract: plan.json + team.json + harness.json + out-<role>.md + header.txt
+"""

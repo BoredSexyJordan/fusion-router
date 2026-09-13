@@ -1,0 +1,26 @@
+{
+  "name": "fusion-orchestrator",
+  "version": "4.0.0",
+  "description": "Fusion model-routing orchestration: frontier lead plans a packet, a middle manager audits and dispatches model-pinned workers, provenance attested from execution receipts.",
+  "author": {
+    "name": "BoredSexyJordan"
+  },
+  "homepage": "https://fusion-router.pages.dev/",
+  "license": "MIT",
+  "keywords": [
+    "model-routing",
+    "subagents",
+    "orchestration",
+    "multi-agent",
+    "middle-manager",
+    "provenance"
+  ],
+  "skills": "./skills/",
+  "commands": "./commands/",
+  "interface": {
+    "displayName": "Fusion Orchestrator",
+    "shortDescription": "Model-pinned subagent teams with attested provenance",
+    "longDescription": "Fusion decomposes one goal into a team of model-pinned subagents. A frontier lead plans a validated packet; a middle manager audits each worker prompt (hard gate against prescription), dispatches one bounded task per member, and collects artifacts. Provenance is attested from harness.json receipts - what actually ran, never the roster.",
+    "developerName": "BoredSexyJordan"
+  }
+}
