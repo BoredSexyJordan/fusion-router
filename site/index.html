@@ -316,24 +316,30 @@ hermes fusion run fusion/packet.json</pre>
       </div>
       <div class="install-block">
         <h4>Claude Code</h4>
-        <pre>claude plugin marketplace add BoredSexyJordan/fusion-marketplace
-claude plugin install fusion-orchestrator@boredsexy-hermes
+        <pre>claude plugin marketplace add \
+  BoredSexyJordan/fusion-marketplace
+claude plugin install \
+  fusion-orchestrator@boredsexy-hermes
 
 # then, in a session:
 /fusion-run "ship the feature"</pre>
       </div>
       <div class="install-block">
         <h4>Grok Build / Grok Bot</h4>
-        <pre>grok plugin marketplace add BoredSexyJordan/fusion-marketplace
+        <pre>grok plugin marketplace add \
+  BoredSexyJordan/fusion-marketplace
 grok plugin install fusion-orchestrator --trust
 
 # then, in a session:
 /fusion-run "ship the feature"</pre>
+        <div class="cap">Add the marketplace, install with --trust, then run /fusion-run.</div>
       </div>
       <div class="install-block">
         <h4>Codex</h4>
-        <pre># worker lane — Copy</pre>
-        <div class="cap">Codex runs Fusion's worker roles. Instructions follow marketplace wiring.</div>
+        <pre># Fusion on Codex = its worker roles.
+# Instructions follow marketplace wiring.
+codex fusion workflows add fusion-orchestrator</pre>
+        <div class="cap">Codex runs Fusion's worker lane; full guide ships with the Codex package.</div>
       </div>
     </div>
   </div>
