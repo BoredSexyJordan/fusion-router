@@ -75,6 +75,7 @@ code,pre{font-family:var(--mono);}
 code.inline{background:var(--surface-2);padding:2px 7px;border-radius:4px;font-size:.9em;}
 pre{
   background:var(--code-bg);border:1px solid var(--border);border-radius:0;
+  max-width:100%;min-width:0;box-sizing:border-box;
   padding:20px 24px;overflow-x:auto;font-size:13.5px;color:var(--text);
   position:relative;font-family:var(--mono);
   /* punch-card corner notches */
@@ -222,6 +223,9 @@ section .container{position:relative;z-index:2;}
 .step p{color:var(--text-dim);font-size:15px;}
 /* ═── install ────────────────────────────────────────────────── */
 .install-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.install-grid > *,.install-block{min-width:0;}
+.grid > *{min-width:0;}
+.code-host{min-width:0;max-width:100%;}
 .install-block{border:1px solid var(--border);padding:20px;background:color-mix(in srgb,var(--surface) 92%,transparent);}
 .install-block h4{font-family:var(--gh);font-weight:500;text-transform:uppercase;letter-spacing:.06em;font-size:15px;margin-bottom:12px;color:var(--accent);}
 .install-block pre{margin:0;font-size:13px;}
