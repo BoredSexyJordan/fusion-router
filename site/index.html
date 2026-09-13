@@ -118,13 +118,13 @@ nav{
   border-bottom:1px solid var(--border);
 }
 .hero-bg{
-  position:absolute;inset:0;z-index:0;opacity:.85;
-  background-image:url('assets/hero-trinity-dawn.jpg');background-size:cover;background-position:center;
-  filter:grayscale(.05) contrast(1.0) brightness(1.05);
+  position:absolute;inset:0;z-index:0;opacity:.9;
+  background-image:url('assets/hero-nuke.jpg');background-size:cover;background-position:center 70%;
+  filter:grayscale(.04) contrast(1.02) brightness(1.02);
 }
 .hero-bg::after{content:"";position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(13,15,20,.86) 0%,rgba(13,15,20,.62) 34%,rgba(13,15,20,.30) 62%,rgba(13,15,20,.55) 100%);}
-[data-theme="light"] .hero-bg::after{background:linear-gradient(180deg,rgba(242,237,224,.80) 0%,rgba(242,237,224,.55) 34%,rgba(242,237,224,.25) 62%,rgba(242,237,224,.55) 100%);}
+  background:linear-gradient(180deg,rgba(13,15,20,.72) 0%,rgba(13,15,20,.42) 38%,rgba(13,15,20,.15) 60%,rgba(13,15,20,.5) 100%);}
+[data-theme="light"] .hero-bg::after{background:linear-gradient(180deg,rgba(242,237,224,.74) 0%,rgba(242,237,224,.42) 38%,rgba(242,237,224,.14) 60%,rgba(242,237,224,.5) 100%);}
 .hero .container{position:relative;z-index:3;}
 /* DECLASSIFIED stamp — one, hero only */
 .stamp{
@@ -135,12 +135,30 @@ nav{
 }
 .hero .eyebrow{
   display:block;font-family:var(--tw);font-size:13px;color:var(--accent);
-  letter-spacing:.14em;margin-bottom:16px;text-transform:uppercase;
+  letter-spacing:.14em;margin-bottom:14px;text-transform:uppercase;
+}
+/* Prominent FUSION wordmark — sits between eyebrow and headline, over the blast */
+.hero-logo{
+  display:flex;align-items:center;justify-content:center;gap:18px;
+  margin:6px 0 12px;position:relative;z-index:4;
+}
+.hero-logo-mark{
+  color:var(--accent);display:grid;place-items:center;
+  filter:drop-shadow(0 2px 10px rgba(242,163,60,.35));
+}
+.hero-logo-word{
+  font-family:var(--gh);font-weight:600;text-transform:uppercase;
+  font-size:clamp(52px,9vw,96px);line-height:.9;letter-spacing:.02em;color:var(--text);
+}
+.hero-logo-word::first-letter{color:var(--accent);}
+.hero .eyebrow::after{
+  content:"";display:block;width:56px;height:2px;background:var(--accent);
+  margin:14px auto 0;opacity:.6;
 }
 .hero h1{
-  font-family:var(--gh);font-size:clamp(42px,7.5vw,80px);font-weight:600;
-  text-transform:uppercase;letter-spacing:.01em;line-height:1.02;
-  max-width:900px;margin:0 auto 26px;
+  font-family:var(--gh);font-size:clamp(26px,4.6vw,46px);font-weight:600;
+  text-transform:uppercase;letter-spacing:.01em;line-height:1.1;
+  max-width:900px;margin:0 auto 30px;
 }
 .hero h1 .em{color:var(--accent);}
 .hero p.sub{font-size:20px;color:var(--text-dim);max-width:660px;margin:0 auto 42px;}
@@ -250,8 +268,12 @@ footer{border-top:1px solid var(--border);padding:56px 0;position:relative;overf
   .container{padding:0 14px;}
   html,body{max-width:100%;overflow-x:hidden;}
   .hero{padding:56px 0 40px;}
-  .hero h1{font-size:clamp(30px,9vw,42px);}
-  .hero p.sub{font-size:16.5px;}
+  .hero h1{font-size:clamp(21px,5.6vw,30px);}
+  .hero p.sub{font-size:16px;}
+  .hero-logo{flex-direction:column;gap:8px;margin:4px 0 14px;}
+  .hero-logo-word{font-size:clamp(44px,13vw,60px);}
+  .hero-logo-mark svg{width:34px;height:34px;}
+  .stamp{font-size:11px;padding:3px 10px;margin-bottom:20px;}
   .hero-code{max-width:100%;margin-top:36px;}
   .tab-row{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
   .tab{flex:0 0 auto;padding:8px 11px;font-size:11px;letter-spacing:.04em;}
@@ -302,7 +324,11 @@ footer{border-top:1px solid var(--border);padding:56px 0;position:relative;overf
   <div class="container">
     <span class="stamp">Declassified</span>
     <span class="eyebrow">Doc&nbsp;Y-000.1 · Model routing · subagent teams · attestation</span>
-    <h1>Always the <span class="em">right model</span><br>for the job.</h1>
+    <div class="hero-logo">
+      <span class="hero-logo-mark"><svg width="46" height="46" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a1 1 0 0 1 1 1v7.2l6.05-3.49a1 1 0 1 1 1 1.73L14.6 12l5.45 3.56a1 1 0 1 1-1 1.73L13 13.8V21a1 1 0 1 1-2 0v-7.2l-6.05 3.49a1 1 0 1 1-1-1.73L9.4 12 3.95 8.44a1 1 0 0 1 1-1.73L11 10.2V3a1 1 0 0 1 1-1Z"/><circle cx="12" cy="12" r="2.2"/></svg></span>
+      <span class="hero-logo-word">Fusion</span>
+    </div>
+    <h1>Always the <span class="em">right model</span><br>to get the job done.</h1>
     <p class="sub">Fusion decomposes one goal into a team of model-pinned subagents. A middle manager keeps the handoff lossless while every artifact is attested to what&nbsp;actually&nbsp;ran.</p>
     <div class="hero-buttons">
       <a class="btn btn-primary" href="#install">↓ Install Fusion</a>
