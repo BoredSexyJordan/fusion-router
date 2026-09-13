@@ -1,0 +1,9 @@
+{
+  "eval": "eval403: (17*23)+(144/12)=403, 2-worker packet, graded 20pts across packet/worker/receipts/attestation",
+  "results": {
+    "HERMES": "20/20 \u2014 real MM dispatch (deepseek-v4-flash MM -> xai-oauth/grok-4.5 worker, 41.3s), attested header, ground truth 403 verified",
+    "CODEX": "20/20 \u2014 codex exec per plugin contract (gpt-5.6-sol worker, 18.6s), receipts+header attested, ground truth 403 verified",
+    "CLAUDE_CODE": "BLOCKED: OAuth access token revoked \u2014 needs claude re-login (user step). Plugin itself reinstalled+verified (4 agents, 3 skills, 1 hook, ghost-model guard tested earlier).",
+    "GROK": "BLOCKED: grok CLI on M2 not authenticated (auth.json.lock only); desktop Grok Bot authed but not headless-drivable. Needs user: grok login on M2, XAI_API_KEY, or run /fusion-run in the desktop app."
+  }
+}

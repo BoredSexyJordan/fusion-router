@@ -1,0 +1,40 @@
+{
+  "fusion_version": "4.0",
+  "name": "eval403",
+  "goal": "Compute (17*23) + (144/12) and verify each part independently",
+  "task_type": "explicit",
+  "lead_model": "gpt-5.6-sol",
+  "lead_provider": "openai",
+  "model_selection_rationale": "deterministic arithmetic eval; lead plans only",
+  "judgment_to_retain": ["the final numeric result and its two verified parts"],
+  "team": {
+    "template": "explicit",
+    "middle_manager": {"model": "deepseek-v4-flash", "provider": "inferx"},
+    "members": [
+      {"role": "mechanical", "model": "grok-4.5", "provider": "xai-oauth", "delegation": "clean_session"},
+      {"role": "review", "model": "deepseek-v4-flash", "provider": "inferx", "delegation": "clean_session"}
+    ]
+  },
+  "phases": [
+    {"phase": "compute", "model": "grok-4.5", "provider": "xai-oauth", "model_reason": "fast arithmetic", "max_turns": 2,
+     "output": ["partial sums"], "id": 1,
+     "inputs": ["(17*23) + (144/12)"],
+     "deliverables": ["value of 17*23", "value of 144/12", "their sum"],
+     "scope_in": ["arithmetic only"],
+     "constraints": ["no code execution; mental arithmetic with written steps"],
+     "evidence_requirements": ["show 17*20+17*3 decomposition", "show 144/12 division"],
+     "verification": ["final sum equals 403"],
+     "stop_conditions": ["once both parts verified and summed"],
+     "judgment_to_retain": ["the numeric answer"],
+     "max_retries": 1}
+  ],
+  "inputs": ["(17*23) + (144/12)"],
+  "deliverables": ["final value with both parts shown verified"],
+  "scope_in": ["arithmetic evaluation and independent verification of (17*23)+(144/12)"],
+  "scope_out": ["anything beyond this expression"],
+  "constraints": ["no code execution; show written steps"],
+  "evidence_requirements": ["decomposition check for 17*23", "direct division for 144/12"],
+  "verification": ["sum equals 403"],
+  "stop_conditions": ["stop once the sum is verified"],
+  "max_retries": 1
+}
