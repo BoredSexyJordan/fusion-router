@@ -1,0 +1,37 @@
+# Deploy the Fusion website to GitHub Pages
+# Activates once the repo is public AND Pages is enabled (Settings → Pages).
+
+name: Deploy site to Pages
+
+on:
+  push:
+    branches: [master]
+    paths: ['site/**']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./site
+
+      - name: Deploy to Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
