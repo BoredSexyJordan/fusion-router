@@ -3,7 +3,7 @@
   "results": {
     "HERMES": "20/20 \u2014 real MM dispatch (deepseek-v4-flash MM -> xai-oauth/grok-4.5 worker, 41.3s), attested header, ground truth 403 verified",
     "CODEX": "20/20 \u2014 codex exec per plugin contract (gpt-5.6-sol worker, 18.6s), receipts+header attested, ground truth 403 verified",
-    "CLAUDE_CODE": "BLOCKED: OAuth access token revoked \u2014 needs claude re-login (user step). Plugin itself reinstalled+verified (4 agents, 3 skills, 1 hook, ghost-model guard tested earlier).",
+    "CLAUDE_CODE": "BLOCKED \u2014 Claude Team OAuth token revoked ACCOUNT-WIDE (CLI and the local claude-team-proxy both surface 401 'OAuth access token has been revoked'). The plugin itself is reinstalled+verified; the CLI accepts localhost base URLs (mitm test proved the full model-gate path works with claude-opus-4-8). UNBLOCK: run `claude login` (browser, Jordan's step), then re-run tools/eval/run_claude.sh. No xrtoken fallback used per Jordan's instruction.",
     "GROK": "BLOCKED: grok CLI on M2 not authenticated (auth.json.lock only); desktop Grok Bot authed but not headless-drivable. Needs user: grok login on M2, XAI_API_KEY, or run /fusion-run in the desktop app."
   }
 }
