@@ -1,0 +1,22 @@
+{
+  "name": "boredsexy-hermes",
+  "owner": {
+    "name": "BoredSexyJordan",
+    "url": "https://github.com/BoredSexyJordan"
+  },
+  "metadata": {
+    "description": "Jordan's private Claude Code marketplace — Fusion orchestration and future Hermes-lane tooling.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "fusion-orchestrator",
+      "source": "./fusion-orchestrator",
+      "description": "Fusion v4 multi-model orchestration: middle-manager loop, model-pinned subagent teams, packet validation, prompt-audit hard gate, attested provenance. Same frozen contract as the Hermes executor.",
+      "version": "4.0.0",
+      "author": { "name": "BoredSexyJordan" },
+      "keywords": ["fusion", "orchestration", "multi-model", "middle-manager"],
+      "strict": true
+    }
+  ]
+}
