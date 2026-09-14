@@ -1,4 +1,5 @@
 ---
+name: fusion-run
 description: Run a Fusion v4 orchestration - plan, validate, dispatch to a model-pinned team, collect attested artifacts
 allowed-tools: Task, Read, Write, Bash, Glob, Grep
 argument-hint: [goal] (--dry-run to plan only)

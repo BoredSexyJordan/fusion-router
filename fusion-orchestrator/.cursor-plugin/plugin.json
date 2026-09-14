@@ -1,0 +1,30 @@
+{
+  "name": "fusion-orchestrator",
+  "displayName": "Fusion Orchestrator",
+  "version": "4.0.0",
+  "description": "Fusion v4 orchestration: middle-manager loop, model-pinned subagent teams, packet validation, prompt-audit hard gate, attested provenance. Conforms to the frozen Fusion run-state contract (plan.json + team.json + harness.json + out-<role>.md + header.txt).",
+  "author": {
+    "name": "Jordan (BoredSexyJordan)"
+  },
+  "homepage": "https://fusion-router.pages.dev/",
+  "repository": "https://github.com/BoredSexyJordan/fusion-marketplace",
+  "license": "MIT",
+  "keywords": [
+    "fusion",
+    "orchestration",
+    "multi-model",
+    "middle-manager",
+    "subagents",
+    "model-routing"
+  ],
+  "category": "developer-tools",
+  "tags": [
+    "orchestration",
+    "multi-agent",
+    "routing",
+    "ai"
+  ],
+  "skills": "./skills/",
+  "agents": "./agents/",
+  "commands": "./commands/"
+}

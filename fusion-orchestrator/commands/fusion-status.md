@@ -1,4 +1,5 @@
 ---
+name: fusion-status
 description: Show the status of the most recent Fusion run in this workspace - attested provenance, per-member receipts, escalations
 allowed-tools: Read, Bash, Glob, Grep
 ---
