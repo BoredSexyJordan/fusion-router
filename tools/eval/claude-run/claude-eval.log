@@ -1,0 +1,9 @@
+Run complete. Packet validated `VALID` on the first pass — no iteration needed. Subagent dispatch was available, so the compute phase ran in a real `fusion-orchestrator:fusion-worker` clean session (no degradation to disclose). The worker attested `claude-haiku-4-5-20251001`, matching the roster pin.
+
+Two things worth flagging in the receipt rather than silently smoothing over:
+- `actual_model` for the mechanical role is the worker's self-attestation; I can't introspect a subagent's model binding independently. It agrees with the plugin's `model: haiku` frontmatter, and I recorded that corroboration.
+- I recorded `elapsed_seconds: 12.942` (harness-measured worker execution) separately from `dispatch_window_seconds: 29` (my wall clock across the dispatch, which includes orchestrator round trips), since the two mean different things.
+
+Also noted: the packet rosters a `review` member but declares only one phase, so that member was never exercised — in scope for this task, but a gap in the packet itself.
+
+DONE out-mechanical.md harness.json header.txt

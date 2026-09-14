@@ -1,0 +1,62 @@
+{
+  "fusion_version": "4.0",
+  "packet": "/tmp/eval403/claude-run/plan.json",
+  "run": "eval403",
+  "validation": {
+    "script": "/root/.claude/plugins/cache/boredsexy-hermes/fusion-orchestrator/4.0.0/scripts/validate_fusion_packet.py",
+    "result": "VALID",
+    "exit_code": 0,
+    "iterations": 1
+  },
+  "orchestrator": {
+    "role": "middle_manager",
+    "pinned_model": "claude-opus-5",
+    "pinned_provider": "anthropic",
+    "actual_model": "claude-opus-5",
+    "actual_provider": "anthropic",
+    "harness": "claude-code"
+  },
+  "dispatch_receipts": [
+    {
+      "role": "mechanical",
+      "phase": "compute",
+      "phase_id": 1,
+      "pinned_model": "claude-haiku-4-5",
+      "pinned_provider": "anthropic",
+      "actual_model": "claude-haiku-4-5-20251001",
+      "actual_provider": "anthropic",
+      "status": "done",
+      "elapsed_seconds": 12.942,
+      "dispatch_window_seconds": 29,
+      "dispatch_method": "subagent",
+      "subagent_type": "fusion-orchestrator:fusion-worker",
+      "agent_id": "a55054dd0ead0a37d",
+      "delegation": "clean_session",
+      "degraded": false,
+      "artifact": "out-mechanical.md",
+      "attestation": "ATTENDED_AS: claude-haiku-4-5-20251001",
+      "attestation_source": "worker self-report, corroborated by plugin agent frontmatter model: haiku",
+      "pin_honored": true,
+      "retries": 0,
+      "verification": {
+        "requirement": "final sum equals 403",
+        "observed": 403,
+        "passed": true
+      }
+    }
+  ],
+  "result": {
+    "expression": "(17*23) + (144/12)",
+    "17*23": 391,
+    "144/12": 12,
+    "sum": 403
+  },
+  "escalations": [],
+  "notes": [
+    "Subagent dispatch was available and used; the compute phase ran in a clean_session fusion-worker subagent, not inline in the orchestrator thread. No degradation to disclose.",
+    "elapsed_seconds (12.942) is the harness-measured execution time of the mechanical worker subagent. dispatch_window_seconds (29) is the orchestrator-side wall clock from pre-dispatch timestamp 1789353832 to post-collection timestamp 1789353861, which also covers orchestrator tool round trips.",
+    "actual_model for role mechanical is the worker's own attestation; the orchestrator cannot independently introspect a subagent's model binding beyond that self-report and the plugin's pinned 'model: haiku' frontmatter, which agree.",
+    "Phase constraint 'no code execution' was carried into the worker prompt; the worker used written mental arithmetic and made a single tool call to write its artifact.",
+    "The packet rosters a second member (role 'review'), but declares only one phase ('compute'). Per the task scope only the compute phase was dispatched; the review member was not exercised."
+  ]
+}
