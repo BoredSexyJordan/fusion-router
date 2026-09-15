@@ -2,7 +2,7 @@
 
 > **[→ Visit the Fusion website](https://fusion-router.pages.dev/)** — live demo, install guides, and the full model.
 
-Fusion is a **model-routing orchestration layer** that runs as a single plugin across **Hermes, Claude Code, Grok Build / Grok Bot, and Codex**. It turns one goal into a team of model-pinned subagents — a middle manager keeps the handoff lossless while every artifact is attested to what actually ran.
+Fusion is a **model-routing orchestration layer** that runs as a single plugin across **Hermes, Claude Code, Grok Build / Grok Bot, Codex, and Cursor**. It turns one goal into a team of model-pinned subagents — a middle manager keeps the handoff lossless while every artifact is attested to what actually ran.
 
 ```
 plan.json   →  team roster, phases, scope, verification
@@ -24,9 +24,9 @@ The middle-manager structure is deliberate: a genius planner with a dumb doer is
 
 | Harness | Command |
 |---|---|
-| **Hermes** | `hermes plugins install BoredSexyJordan/fusion-marketplace#hermes` → `hermes plugins enable fusion` → `hermes fusion run fusion/packet.json` |
-| **Claude Code** | `claude plugin marketplace add BoredSexyJordan/fusion-marketplace` → `claude plugin install fusion-orchestrator@boredsexy-hermes` → `/fusion-run` |
-| **Grok Build / Grok Bot** | `grok plugin marketplace add BoredSexyJordan/fusion-marketplace` → `grok plugin install fusion-orchestrator --trust` |
+| **Hermes** | `hermes plugins install BoredSexyJordan/fusion-router#hermes` → `hermes plugins enable fusion` → `hermes fusion run fusion/packet.json` |
+| **Claude Code** | `claude plugin marketplace add BoredSexyJordan/fusion-router` → `claude plugin install fusion-orchestrator@boredsexy-hermes` → `/fusion-run` |
+| **Grok Build / Grok Bot** | `grok plugin marketplace add BoredSexyJordan/fusion-router` → `grok plugin install fusion-orchestrator --trust` |
 | **Codex** | worker lane (see the site) |
 
 ## Layout

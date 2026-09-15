@@ -13,7 +13,7 @@
       "category": "development",
       "version": "4.0.0",
       "author": { "name": "BoredSexyJordan" },
-      "homepage": "https://github.com/BoredSexyJordan/fusion-marketplace",
+      "homepage": "https://github.com/BoredSexyJordan/fusion-router",
       "keywords": ["fusion", "orchestration", "multi-model", "middle-manager", "model-routing"],
       "strict": true
     }
