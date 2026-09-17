@@ -3,8 +3,21 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Fusion — Always the right model to get the job done. (Trinity cut)</title>
-<meta name="description" content="Fusion Router: a model-routing orchestration layer that runs as a plugin on Hermes, Claude Code, Grok Build, and Codex. Middle-manager subagent teams, lossless handoffs, attested provenance. Site Y." />
+<title>{title}</title>
+<meta name="description" content="{desc}" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Fusion Router" />
+<meta property="og:title" content="Fusion — Always the right model to get the job done." />
+<meta property="og:description" content="A model-routing orchestration layer that runs as one plugin on Hermes, Claude Code, Grok, Codex, and Cursor. Model-pinned subagent teams, lossless handoffs, attested provenance." />
+<meta property="og:image" content="https://fusion-trinity.pages.dev/assets/hero-nuke.jpg" />
+<meta property="og:image:width" content="1536" />
+<meta property="og:image:height" content="1024" />
+<meta property="og:image:alt" content="Nuclear detonation over a New Mexico desert test site with the Fusion wordmark" />
+<meta property="og:url" content="https://fusion-router.pages.dev/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Fusion — Always the right model to get the job done." />
+<meta name="twitter:description" content="Model-routing orchestration: middle-manager teams, lossless handoffs, attested provenance. One plugin, five harnesses." />
+<meta name="twitter:image" content="https://fusion-trinity.pages.dev/assets/hero-nuke.jpg" />
 <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -619,12 +632,11 @@ function fallbackCopy(text){
   var fired = false, ticking = false;
 
   function blastProgress(){
-    // 0 → 1 as #how scrolls from below-viewport into mid-viewport
+    // 0 → 1 across the FULL first-screen travel: completes when #how's top reaches the viewport bottom
+    // (not mid-screen) so desktop users — whose hero+code fill viewport one — see the whole ramp.
     var r = how.getBoundingClientRect();
     var vh = innerHeight;
-    // start when section top reaches 85% of viewport, complete at 35%
-    var start = vh * .95, end = vh * .35;
-    var p = (start - r.top) / (start - end);
+    var p = (vh * .95 - r.top) / (vh * .95 - vh * -.05); // completes when how.top hits -5%vh
     return Math.max(0, Math.min(1, p));
   }
   function frame(){
