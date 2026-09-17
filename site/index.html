@@ -185,6 +185,28 @@ nav{
 .code-host{border:1px solid var(--border);border-top:none;}
 .code-host pre{border:none;border-radius:0;}
 .code-host pre::before{content:attr(data-receipt);}
+
+/* ═── copy button (trefoil) ───────────────────────────────────── */
+.code-host{position:relative;}
+.copy-btn{
+  position:absolute;top:10px;right:10px;z-index:5;
+  display:flex;align-items:center;gap:6px;
+  font-family:var(--gh);font-size:10.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--text-mute);background:var(--surface-2);
+  border:1px solid var(--border);padding:5px 9px;cursor:pointer;
+  opacity:.55;transition:opacity .15s,border-color .15s,color .15s,background .15s;
+}
+.code-host:hover .copy-btn,.install-block:hover .copy-btn,.copy-btn:hover{opacity:1;}
+.copy-btn:hover{border-color:var(--accent);color:var(--accent);}
+.copy-btn svg{width:11px;height:11px;display:block;}
+.copy-btn.copied{opacity:1;color:var(--bg);background:var(--accent);border-color:var(--accent);}
+/* trefoil spins + glows on click */
+.copy-btn svg{transform-origin:50% 60%;}
+.copy-btn.copied svg{animation:spin-reactor .9s cubic-bezier(.2,.7,.3,1) 1;}
+@keyframes spin79{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.copy-btn.copied svg{animation:trefoilspin .9s cubic-bezier(.2,.8,.3,1) 1;}
+@keyframes trefoil-spin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+.copy-btn .lbl{pointer-events:none;}
 /* ═── SECTION base ────────────────────────────────────────────── */
 section{padding:84px 0;position:relative;}
 .section-bg{
@@ -247,7 +269,7 @@ section .container{position:relative;z-index:2;}
 .install-grid > *,.install-block{min-width:0;}
 .grid > *{min-width:0;}
 .code-host{min-width:0;max-width:100%;}
-.install-block{border:1px solid var(--border);padding:20px;background:color-mix(in srgb,var(--surface) 92%,transparent);}
+.install-block{border:1px solid var(--border);padding:20px;background:color-mix(in srgb,var(--surface) 92%,transparent);position:relative;}
 .install-block h4{font-family:var(--gh);font-weight:500;text-transform:uppercase;letter-spacing:.06em;font-size:15px;margin-bottom:12px;color:var(--accent);}
 .install-block pre{margin:0;font-size:13px;}
 .install-block .cap{font-family:var(--tw);font-size:12.5px;color:var(--text-mute);margin-top:10px;}
@@ -344,7 +366,7 @@ footer{border-top:1px solid var(--border);padding:56px 0;position:relative;overf
         <span class="tab" data-tab="grok">Grok Bot / Build</span>
         <span class="tab" data-tab="codex">Codex</span>
       </div>
-      <div class="code-host">
+      <div class="code-host"><button class="copy-btn" type="button" aria-label="Copy install command" onclick="copyPane(this)"><svg viewBox="0 0 24 24" class="tf" aria-hidden="true"><circle cx="12" cy="12" r="2" fill="currentColor"/><g class="tf-rotor" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M12 9.4 A2.6 2.6 0 0 0 9.5 7.9 L4.2 4.9 A9.2 9.2 0 0 1 12 2.8"/><path d="M9.5 13.4 A2.2 2.2 0 0 0 9.5 16.2 L4.2 19.1 A9.2 9.2 0 0 1 3.4 10.9"/><path d="M14.5 13.4 L19.8 19.1 A9.2 9.2 0 0 1 10.9 20.6"/></g></svg><span>Copy</span></button>
         <pre data-receipt="RECEIPT #04471 · RUN 05:29:45 · ATTESTED" id="code-hermes" class="code-pane">hermes plugins install BoredSexyJordan/fusion-router#hermes
 hermes plugins enable fusion
 hermes fusion plan "ship the feature"
@@ -421,7 +443,7 @@ codex fusion workflows add fusion-orchestrator
     </div>
     <div class="install-grid">
       <div class="install-block">
-        <h4>Hermes</h4>
+        <h4>Hermes</h4><button class="copy-btn" type="button" aria-label="Copy install command" onclick="copyPane(this)"><svg viewBox="0 0 24 24" class="tf" aria-hidden="true"><circle cx="12" cy="12" r="2" fill="currentColor"/><g class="tf-rotor" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M12 9.4 A2.6 2.6 0 0 0 9.5 7.9 L4.2 4.9 A9.2 9.2 0 0 1 12 2.8"/><path d="M9.5 13.4 A2.2 2.2 0 0 0 9.5 16.2 L4.2 19.1 A9.2 9.2 0 0 1 3.4 10.9"/><path d="M14.5 13.4 L19.8 19.1 A9.2 9.2 0 0 1 10.9 20.6"/></g></svg><span>Copy</span></button>
         <pre data-receipt="RUN #H-01 · ATTESTED">hermes plugins install BoredSexyJordan/fusion-router#hermes
 hermes plugins enable fusion
 hermes fusion plan "your goal"
@@ -429,7 +451,7 @@ hermes fusion run fusion/packet.json</pre>
         <div class="cap">Fusion is native to the Hermes lane it was born in.</div>
       </div>
       <div class="install-block">
-        <h4>Claude Code</h4>
+        <h4>Claude Code</h4><button class="copy-btn" type="button" aria-label="Copy install command" onclick="copyPane(this)"><svg viewBox="0 0 24 24" class="tf" aria-hidden="true"><circle cx="12" cy="12" r="2" fill="currentColor"/><g class="tf-rotor" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M12 9.4 A2.6 2.6 0 0 0 9.5 7.9 L4.2 4.9 A9.2 9.2 0 0 1 12 2.8"/><path d="M9.5 13.4 A2.2 2.2 0 0 0 9.5 16.2 L4.2 19.1 A9.2 9.2 0 0 1 3.4 10.9"/><path d="M14.5 13.4 L19.8 19.1 A9.2 9.2 0 0 1 10.9 20.6"/></g></svg><span>Copy</span></button>
         <pre data-receipt="RUN #C-02 · ATTESTED">claude plugin marketplace add \
   BoredSexyJordan/fusion-router
 claude plugin install fusion-orchestrator@boredsexy-hermes
@@ -439,7 +461,7 @@ claude plugin install fusion-orchestrator@boredsexy-hermes
         <div class="cap">Add the marketplace, install, then run /fusion-run in a session.</div>
       </div>
       <div class="install-block">
-        <h4>Grok Bot (desktop) + Grok Build (CLI)</h4>
+        <h4>Grok Bot (desktop) + Grok Build (CLI)</h4><button class="copy-btn" type="button" aria-label="Copy install command" onclick="copyPane(this)"><svg viewBox="0 0 24 24" class="tf" aria-hidden="true"><circle cx="12" cy="12" r="2" fill="currentColor"/><g class="tf-rotor" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M12 9.4 A2.6 2.6 0 0 0 9.5 7.9 L4.2 4.9 A9.2 9.2 0 0 1 12 2.8"/><path d="M9.5 13.4 A2.2 2.2 0 0 0 9.5 16.2 L4.2 19.1 A9.2 9.2 0 0 1 3.4 10.9"/><path d="M14.5 13.4 L19.8 19.1 A9.2 9.2 0 0 1 10.9 20.6"/></g></svg><span>Copy</span></button>
         <pre data-receipt="RUN #G-03 · ATTESTED">grok plugin marketplace add BoredSexyJordan/fusion-router
 grok plugin install fusion-orchestrator --trust
 
@@ -448,7 +470,7 @@ grok plugin install fusion-orchestrator --trust
         <div class="cap">Add the marketplace, install with --trust, then run /fusion-run.</div>
       </div>
       <div class="install-block">
-        <h4>Codex</h4>
+        <h4>Codex</h4><button class="copy-btn" type="button" aria-label="Copy install command" onclick="copyPane(this)"><svg viewBox="0 0 24 24" class="tf" aria-hidden="true"><circle cx="12" cy="12" r="2" fill="currentColor"/><g class="tf-rotor" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M12 9.4 A2.6 2.6 0 0 0 9.5 7.9 L4.2 4.9 A9.2 9.2 0 0 1 12 2.8"/><path d="M9.5 13.4 A2.2 2.2 0 0 0 9.5 16.2 L4.2 19.1 A9.2 9.2 0 0 1 3.4 10.9"/><path d="M14.5 13.4 L19.8 19.1 A9.2 9.2 0 0 1 10.9 20.6"/></g></svg><span>Copy</span></button>
         <pre data-receipt="RUN #X-04 · ATTESTED"># Fusion on Codex = its worker roles.
 codex fusion workflows add fusion-orchestrator
 # full guide ships with the Codex package</pre>
@@ -523,6 +545,32 @@ codex fusion workflows add fusion-orchestrator
     });
   });
 })();
+</script>
+
+<script>
+function copyPane(btn){
+  var host = btn.closest('.code-host');
+  var pre = host ? host.querySelector('pre') : null;
+  if(!pre) return;
+  var text = pre.innerText.trim();
+  var done = function(){
+    btn.classList.add('copied');
+    var label = btn.querySelector('span');
+    if(label){ var old = label.textContent; label.textContent = 'COPIED';
+      setTimeout(function(){ label.textContent = old; }, 1400); }
+    setTimeout(function(){ btn.classList.remove('copied'); }, 1400);
+  };
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(done).catch(function(){ fallbackCopy(text); done(); });
+  } else { fallbackCopy(text); done(); }
+}
+function fallbackCopy(text){
+  var ta = document.createElement('textarea');
+  ta.value = text; ta.style.position='fixed'; ta.style.opacity='0';
+  document.body.appendChild(ta); ta.select();
+  try { document.execCommand('copy'); } catch(e) {}
+  document.body.removeChild(ta);
+}
 </script>
 </body>
 </html>
